@@ -11,6 +11,7 @@ export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 alias cd_componentes='cd ~/Projetos/componentes-marketplace/componentes'
 alias cd_esportes='cd ~/Projetos/esportes/esportes'
 alias cd_esportes_services='cd ~/Projetos/esportes_services'
+alias cd_globo_ui='cd ~/Projetos/globo-ui/globo_ui'
 alias cd_globoesporte_core='cd ~/Projetos/globoesporte-core/globoesporte'
 alias cd_projetos='cd ~/Projetos/'
 alias cd_workspace='cd ~/Workspace'
@@ -18,9 +19,14 @@ alias cd_workspace='cd ~/Workspace'
 alias services_up='cd_esportes_services; vagrant up'
 alias services_down='cd_esportes_services; vagrant halt'
 
+alias thumbor_run='workon_esportes; thumbor -c esportes/conf/setting_thumbor_local.py'
+
 alias workon_esportes='workon esportes'
 alias workon_componentes='workon_esportes; cd_componentes'
+alias workon_globo_ui='workon glb; cd_globo_ui'
 alias workon_globoesporte_core='workon_esportes; cd_globoesporte_core'
+alias workon_nodeenv='. ~/Projetos/esportes_services/env/bin/activate'
+
 
 # Tools
 alias netstat_osx='sudo lsof -i -P'
@@ -39,7 +45,10 @@ export PS1='\[\033[01;32m\]\u ➜  \[\033[01;31m\]\w\[\033[00m\]$(git branch &>/
 
 # Customizing PATH
 export ESPORTES_PATH=$HOME/Projetos/esportes
-PATH="/usr/local/heroku/bin:$PATH"
+export GOPATH=$HOME/Workspace/go
+
+PATH="/usr/local/heroku/bin:${PATH}"
 PATH="/Library/Frameworks/Python.framework/Versions/3.4/bin:${PATH}"
+PATH="${GOPATH}/bin:${PATH}"
 
 export PATH
