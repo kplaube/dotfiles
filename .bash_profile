@@ -7,6 +7,12 @@ export PIP_REQUIRE_VIRTUALENV=true
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
+# Android Env
+export PATH=${PATH}:/Applications/Android\ Studio.app/sdk/platform-tools:/Applications/Android\ Studio.app/sdk/tools
+export JAVA_HOME=$(/usr/libexec/java_home)
+export PATH=${JAVA_HOME}/bin:$PATH
+export PATH=/usr/local/bin:$PATH
+
 # Shortcuts
 alias cd_componentes='cd ~/Projetos/componentes-marketplace/componentes'
 alias cd_esportes='cd ~/Projetos/esportes/esportes'
@@ -18,15 +24,16 @@ alias cd_workspace='cd ~/Workspace'
 
 alias services_up='cd_esportes_services; vagrant up'
 alias services_down='cd_esportes_services; vagrant halt'
-
 alias thumbor_run='workon_esportes; thumbor -c esportes/conf/setting_thumbor_local.py'
+alias staging_ativar='sudo ~/Projetos/staging-deploy/scripts/staging.sh ativar'
+alias staging_desativar='sudo ~/Projetos/staging-deploy/scripts/staging.sh desativar'
+alias staging_status='~/Projetos/staging-deploy/scripts/staging.sh status'
 
-alias workon_esportes='workon esportes'
-alias workon_componentes='workon_esportes; cd_componentes'
-alias workon_globo_ui='workon glb; cd_globo_ui'
-alias workon_globoesporte_core='workon_esportes; cd_globoesporte_core'
 alias workon_nodeenv='. ~/Projetos/esportes_services/env/bin/activate'
-
+alias workon_esportes='workon esportes'
+alias workon_globoesporte_core='workon_esportes; cd_globoesporte_core'
+alias workon_componentes='workon_esportes; workon_nodeenv; cd_componentes'
+alias workon_globo_ui='workon_esportes; workon_nodeenv; cd_globo_ui'
 
 # Tools
 alias netstat_osx='sudo lsof -i -P'
