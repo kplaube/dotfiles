@@ -14,17 +14,19 @@ export PATH=${JAVA_HOME}/bin:$PATH
 export PATH=/usr/local/bin:$PATH
 
 # Shortcuts
+alias cd_combate='cd ~/Projetos/combate'
 alias cd_componentes='cd ~/Projetos/componentes-marketplace/componentes'
 alias cd_esportes='cd ~/Projetos/esportes/esportes'
 alias cd_esportes_services='cd ~/Projetos/esportes_services'
 alias cd_globo_ui='cd ~/Projetos/globo-ui/globo_ui'
 alias cd_globoesporte_core='cd ~/Projetos/globoesporte-core/globoesporte'
 alias cd_projetos='cd ~/Projetos/'
+alias cd_sportv='cd ~/Projetos/sportv/sportv'
 alias cd_workspace='cd ~/Workspace'
 
 alias services_up='cd_esportes_services; vagrant up'
 alias services_down='cd_esportes_services; vagrant halt'
-alias thumbor_run='workon_esportes; thumbor -c esportes/conf/setting_thumbor_local.py'
+alias thumbor_run='workon thumbor; cd_esportes; cd ../; thumbor -c esportes/conf/setting_thumbor_local.py'
 alias staging_ativar='sudo ~/Projetos/staging-deploy/scripts/staging.sh ativar'
 alias staging_desativar='sudo ~/Projetos/staging-deploy/scripts/staging.sh desativar'
 alias staging_status='~/Projetos/staging-deploy/scripts/staging.sh status'
@@ -34,6 +36,8 @@ alias workon_esportes='workon esportes'
 alias workon_globoesporte_core='workon_esportes; cd_globoesporte_core'
 alias workon_componentes='workon_esportes; workon_nodeenv; cd_componentes'
 alias workon_globo_ui='workon_esportes; workon_nodeenv; cd_globo_ui'
+alias workon_sportv='workon_esportes; cd_sportv'
+alias workon_combate='workon_esportes; cd_combate'
 
 # Tools
 alias netstat_osx='sudo lsof -i -P'
