@@ -3,6 +3,8 @@ LOCAL_BASH_PROFILE=$(CURDIR)/.bash_profile
 HOME_BASH_PROFILE=$(HOME)/.bash_profile
 LOCAL_ZSH_PROFILE=$(CURDIR)/.zshrc
 HOME_ZSH_PROFILE=$(HOME)/.zshrc
+LOCAL_ALIASES_FILE=$(CURDIR)/.my-aliases.sh
+HOME_ALIASES_FILE=$(HOME)/.my-aliases.sh
 
 help:
 	@echo "Let me help you with these awesome tasks"
@@ -15,7 +17,9 @@ help:
 install:
 	cp $(LOCAL_BASH_PROFILE) $(HOME_BASH_PROFILE)
 	cp $(LOCAL_ZSH_PROFILE) $(HOME_ZSH_PROFILE)
+	cp $(LOCAL_ALIASES_FILE) $(HOME_ALIASES_FILE)
 
 develop:
 	ln -sf $(LOCAL_BASH_PROFILE) $(HOME_BASH_PROFILE)
 	ln -sf $(LOCAL_ZSH_PROFILE) $(HOME_ZSH_PROFILE)
+	ln -sf $(LOCAL_ALIASES_FILE) $(HOME_ALIASES_FILE)
