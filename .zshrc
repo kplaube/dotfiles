@@ -23,7 +23,7 @@ ZSH_THEME="agnoster"
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-ENABLE_CORRECTION="true"
+ENABLE_CORRECTION="false"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 # COMPLETION_WAITING_DOTS="true"
@@ -45,7 +45,7 @@ ENABLE_CORRECTION="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(atom git jsontools python rvm virtualenvwrapper)
+plugins=(atom git jsontools python rvm)
 
 # User configuration
 
@@ -55,7 +55,7 @@ export PATH="/Users/klaus/Workspace/go/bin:/Library/Frameworks/Python.framework/
 source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
@@ -81,3 +81,8 @@ export SSH_KEY_PATH="~/.ssh/dsa_id"
 
 source ~/.my-aliases.sh
 source ~/.my-global-vars.sh
+
+# virtualenvwrapper plugin is broken :(
+export WORKON_HOME=$HOME/.virtualenvs
+source /usr/local/bin/virtualenvwrapper.sh
+export PIP_REQUIRE_VIRTUALENV=true
