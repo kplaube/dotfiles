@@ -1,4 +1,9 @@
 # Tools
+mvim()
+{
+    (unset GEM_PATH GEM_HOME; command mvim "$@")
+}
+
 alias fuck='eval $(thefuck $(fc -ln -1))'
 alias netstat_osx='sudo lsof -i -P'
 alias tm='top -o vsize' # memory
@@ -13,6 +18,7 @@ alias pydev='python setup.py develop --no-deps'
 
 # Shortcuts
 alias cd_admin_components='cd_projetos; cd admin-components/'
+alias cd_backstage_ui='cd_projetos; cd ui/'
 alias cd_cdaaas='cd_projetos; cd cdaaas/'
 alias cd_cmaas='cd_projetos; cd cmaas/'
 alias cd_cssaas='cd_projetos; cd cssaas/'
@@ -31,6 +37,7 @@ alias cd_shiatsu='cd_projetos; cd shiatsu/'
 alias cd_workspace='cd ~/Workspace/'
 
 alias workon_admin_components='cd_admin_components'
+alias workon_backstage_ui='workon_presentation; cd_backstage_ui'
 alias workon_cdaaas='workon_presentation; cd_cdaaas'
 alias workon_cmaas='workon_presentation; cd_cmaas'
 alias workon_cssaas='workon_presentation; cd_cssaas'

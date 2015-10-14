@@ -45,11 +45,11 @@ ENABLE_CORRECTION="false"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(atom git jsontools python rvm virtualenvwrapper)
+plugins=(atom bower bundler git jsontools python rvm virtualenvwrapper)
 
 # User configuration
 
-export PATH="/Users/klaus/Workspace/go/bin:/Library/Frameworks/Python.framework/Versions/3.4/bin:/usr/local/heroku/bin:/usr/local/bin:/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home/bin:/Users/klaus/.rvm/gems/ruby-2.1.2/bin:/Users/klaus/.rvm/gems/ruby-2.1.2@global/bin:/Users/klaus/.rvm/rubies/ruby-2.1.2/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/usr/local/go/bin:/Users/klaus/.rvm/bin:/Users/klaus/.rvm/bin:/Applications/Android Studio.app/sdk/platform-tools:/Applications/Android Studio.app/sdk/tools"
+export PATH="/Users/klaus/Workspace/go/bin:/Library/Frameworks/Python.framework/Versions/3.4/bin:/usr/local/heroku/bin:/usr/local/bin:/System/Library/Java/JavaVirtualMachines/1.8.0.jdk/Contents/Home/bin:/Users/klaus/.rvm/gems/ruby-2.1.2/bin:/Users/klaus/.rvm/gems/ruby-2.1.2@global/bin:/Users/klaus/.rvm/rubies/ruby-2.1.2/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/usr/local/go/bin:/Users/klaus/.rvm/bin:/Users/klaus/.rvm/bin:/Applications/Android Studio.app/sdk/platform-tools:/Applications/Android Studio.app/sdk/tools"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
