@@ -49,7 +49,8 @@ plugins=(atom bower bundler git jsontools python rvm virtualenvwrapper)
 
 # User configuration
 
-export PATH="/Users/klaus/Workspace/go/bin:/Library/Frameworks/Python.framework/Versions/3.4/bin:/usr/local/heroku/bin:/usr/local/bin:/System/Library/Java/JavaVirtualMachines/1.8.0.jdk/Contents/Home/bin:/Users/klaus/.rvm/gems/ruby-2.1.2/bin:/Users/klaus/.rvm/gems/ruby-2.1.2@global/bin:/Users/klaus/.rvm/rubies/ruby-2.1.2/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/usr/local/go/bin:/Users/klaus/.rvm/bin:/Users/klaus/.rvm/bin:/Applications/Android Studio.app/sdk/platform-tools:/Applications/Android Studio.app/sdk/tools"
+export PATH="$PATH:/Library/Frameworks/Python.framework/Versions/3.4/bin:/usr/local/heroku/bin:/System/Library/Java/JavaVirtualMachines/1.8.0.jdk/Contents/Home/bin:/Applications/Android Studio.app/sdk/platform-tools:/Applications/Android Studio.app/sdk/tools:/usr/local/Cellar/gettext/0.19.6/bin"
+export GOPATH="$HOME/Workspace/go"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -61,7 +62,7 @@ export LANG=en_US.UTF-8
 if [[ -n $SSH_CONNECTION ]]; then
     export EDITOR='vim'
 else
-    export EDITOR='mvim'
+    export EDITOR='vim'
 fi
 
 # Compilation flags
