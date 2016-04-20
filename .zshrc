@@ -45,13 +45,13 @@ ENABLE_CORRECTION="false"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(atom bower bundler git jsontools python rvm virtualenvwrapper)
+plugins=(nvm python rvm)
 
 # User configuration
 
-export PATH="$PATH:/Library/Frameworks/Python.framework/Versions/3.4/bin:/usr/local/heroku/bin:/System/Library/Java/JavaVirtualMachines/1.8.0.jdk/Contents/Home/bin:/Applications/Android Studio.app/sdk/platform-tools:/Applications/Android Studio.app/sdk/tools:/usr/local/Cellar/gettext/0.19.6/bin"
+#export PATH="$PATH:/Library/Frameworks/Python.framework/Versions/3.4/bin:/usr/local/heroku/bin:/System/Library/Java/JavaVirtualMachines/1.8.0.jdk/Contents/Home/bin:/Applications/Android Studio.app/sdk/platform-tools:/Applications/Android Studio.app/sdk/tools:/usr/local/Cellar/gettext/0.19.6/bin"
 export GOPATH="$HOME/Workspace/go"
-# export MANPATH="/usr/local/man:$MANPATH"
+export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
 
@@ -62,7 +62,7 @@ export LANG=en_US.UTF-8
 if [[ -n $SSH_CONNECTION ]]; then
     export EDITOR='vim'
 else
-    export EDITOR='vim'
+    export EDITOR='mvim'
 fi
 
 # Compilation flags
@@ -82,3 +82,5 @@ export SSH_KEY_PATH="~/.ssh/dsa_id"
 
 source ~/.my-aliases.sh
 source ~/.my-global-vars.sh
+
+export rvmsudo_secure_path=0
