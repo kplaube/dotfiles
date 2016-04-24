@@ -1,9 +1,5 @@
 # Tools
-mvim()
-{
-    (unset GEM_PATH GEM_HOME; command mvim "$@")
-}
-
+alias mvim='/Applications/MacVim.app/Contents/MacOS/Vim -g'
 alias fuck='eval $(thefuck $(fc -ln -1))'
 alias netstat_osx='sudo lsof -i -P'
 alias tm='top -o vsize' # memory
