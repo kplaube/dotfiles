@@ -7,6 +7,7 @@ alias tm='top -o vsize' # memory
 alias tu='top -o cpu' # cpu
 alias tree='ls -R | grep ":$" | sed -e "s/:$//" -e "s/[^-][^\/]*\//--/g" -e "s/^/   /" -e "s/-/|/"'
 alias zshconfig="vim ~/.zshrc"
+alias zpreztoconfig="vim ~/.zpreztorc"
 
 # Python tools
 alias pyclean='find . -name "*.pyc" -exec rm {} \;'

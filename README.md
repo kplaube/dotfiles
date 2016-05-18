@@ -7,7 +7,7 @@ Dependencies
 ------------
 
 Although I have a `.bash_profile` script, I strongly recommend you to use
-[Zsh](http://www.zsh.org/) with [oh my zsh](http://ohmyz.sh/). It's a
+[Zsh](http://www.zsh.org/) with [Prezto](https://github.com/sorin-ionescu/prezto). It's a
 wonderful framework that automates a lot of work you do in your daily routine.
 
 Installing
