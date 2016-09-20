@@ -7,11 +7,15 @@ Dependencies
 ------------
 
 I strongly recommend you to use
-[Zsh](http://www.zsh.org/) with [Prezto](https://github.com/sorin-ionescu/prezto). It's a
+[Zsh](http://www.zsh.org/) with [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh/). It's a
 wonderful framework that automates a lot of work you do in your daily routine.
 
 Installing
 ----------
+
+First of all, you'll need to install oh-my-zsh:
+
+```$ sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"```
 
 You can install the scripts through the following command:
 
