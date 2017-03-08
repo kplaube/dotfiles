@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/klaus/.oh-my-zsh
+export ZSH=~/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -48,7 +48,7 @@ ZSH_THEME="agnoster"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git ruby rvm python nvm)
+plugins=(git ruby rvm python pyenv nvm)
 
 PATH=$PATH:$HOME/.rvm/bin
 source $ZSH/oh-my-zsh.sh
@@ -64,7 +64,7 @@ source $ZSH/oh-my-zsh.sh
 if [[ -n $SSH_CONNECTION ]]; then
     export EDITOR='vim'
 else
-    export EDITOR='mvim'
+    export EDITOR='nvim'
 fi
 
 # Compilation flags
@@ -82,9 +82,3 @@ fi
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 source ~/.my-aliases.sh
-
-# Enabling virtualenvwrapper + pyenv
-if which pyenv > /dev/null; then
-    eval "$(pyenv init -)"
-    pyenv virtualenvwrapper
-fi
