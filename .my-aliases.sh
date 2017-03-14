@@ -1,8 +1,14 @@
 # Tools
-alias mvim='/Applications/MacVim.app/Contents/MacOS/Vim -g'
-alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
+
+if [[ uname == 'FreeBSD' ]]; then
+    alias mvim='/Applications/MacVim.app/Contents/MacOS/Vim -g'
+    alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
+    alias netstat_osx='sudo lsof -i -P'
+else
+    alias mvim='gvim'
+fi
+
 alias fuck='eval $(thefuck $(fc -ln -1))'
-alias netstat_osx='sudo lsof -i -P'
 alias tm='top -o vsize' # memory
 alias tu='top -o cpu' # cpu
 alias tree='ls -R | grep ":$" | sed -e "s/:$//" -e "s/[^-][^\/]*\//--/g" -e "s/^/   /" -e "s/-/|/"'
