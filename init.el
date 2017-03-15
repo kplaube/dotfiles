@@ -6,9 +6,17 @@
 (add-to-list 'package-archives
 	     '("melpa" . "http://melpa.org/packages/"))
 
+(custom-set-variables
+ '(package-selected-packages
+   (quote
+    (magit projectile neotree py-autopep8 flycheck elpy better-defaults pyenv-mode-auto paradox gruvbox-theme))))
+(custom-set-faces
+)
+
 (package-initialize)
 (when (not package-archive-contents)
   (package-refresh-contents))
+(package-install-selected-packages)
 
 ;; Basic settings
 ;; ------------------------------
@@ -46,21 +54,3 @@
   (add-hook 'elpy-mode-hook 'flycheck-mode))
 
 (add-hook 'elpy-mode-hook 'py-autopep8-enable-on-save)
-
-;; Automatic settings
-;; ------------------------------
-
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   (quote
-    (magit projectile neotree py-autopep8 flycheck elpy better-defaults pyenv-mode-auto paradox gruvbox-theme))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
