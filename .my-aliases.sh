@@ -2,10 +2,11 @@
 
 if [[ uname == 'FreeBSD' ]]; then
     alias mvim='/Applications/MacVim.app/Contents/MacOS/Vim -g'
-    alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
     alias netstat_osx='sudo lsof -i -P'
+    alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
 else
     alias mvim='gvim'
+    alias emacs=/usr/bin/emacs25
 fi
 
 alias fuck='eval $(thefuck $(fc -ln -1))'
