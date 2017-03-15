@@ -24,3 +24,14 @@ You can install the scripts through the following command:
 For development purposes, you can make a symbolic link using another `make` task:
 
 ```$ make develop```
+
+Emacs and init.el
+-----------------
+
+It's not mandatory to use [Emacs](https://www.gnu.org/software/emacs/), but if you
+do, you'll need the `emacs 2.5+`.
+
+This configuration has some good stuff, like a Python environment, project management
+and git integration.
+
+Enjoy :)
