@@ -48,7 +48,7 @@ ZSH_THEME="agnoster"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git ruby rvm python pyenv nvm)
+plugins=(git ruby rvm python nvm)
 
 PATH=$PATH:$HOME/.rvm/bin
 source $ZSH/oh-my-zsh.sh
@@ -82,3 +82,7 @@ fi
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 source ~/.my-aliases.sh
+
+# Activate pyenv
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
