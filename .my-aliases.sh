@@ -1,6 +1,8 @@
 # Tools
 
-if [[ uname == 'Darwin' ]]; then
+OS=$(uname)
+
+if [ "$OS" = "Darwin" ]; then
     alias mvim='/Applications/MacVim.app/Contents/MacOS/Vim -g'
     alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
     alias netstat_osx='sudo lsof -i -P'
