@@ -1,0 +1,12 @@
+session_name: liveloadsapi
+windows:
+  - window_name: vim window
+    layout: tiled
+    panes:
+      - shell_command:
+        - cd ~/Projects/live-loads-api/
+        - vim
+  - window_name: tests
+    layout: main-vertical
+    panes:
+      - cd ~/Projects/live-loads-api/
