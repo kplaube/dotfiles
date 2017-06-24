@@ -48,7 +48,7 @@ ZSH_THEME="agnoster"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git ruby rvm python nvm)
+plugins=(autoenv git go nvm python ruby rvm)
 
 PATH=$PATH:$HOME/.rvm/bin
 source $ZSH/oh-my-zsh.sh
@@ -58,13 +58,14 @@ source $ZSH/oh-my-zsh.sh
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
     export EDITOR='vim'
 else
-    export EDITOR='nvim'
+    export EDITOR='mvim'
 fi
 
 # Compilation flags
@@ -86,3 +87,6 @@ source ~/.my-aliases.sh
 # Activate pyenv
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
+
+# Activate lua env
+export PATH=$PATH:$HOME/.luarocks/bin
