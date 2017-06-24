@@ -26,13 +26,22 @@
   (package-refresh-contents))
 (package-install-selected-packages)
 
+;; Functions
+;; ------------------------------
+
+(defun show-file-name ()
+  "Show the full path file name in the minibuffer."
+  (interactive)
+  (message (buffer-file-name)))
+
 ;; Basic settings
 ;; ------------------------------
 
 (load-theme 'gruvbox t) ;; load gruvbox theme
+(setq column-number-mode t) ;; enable column numbers
 (setq inhibit-startup-message t) ;; hide the startup message
-(global-linum-mode t) ;; enable line numbers globally
 (setq visible-bell nil) ;; disable visible bell
+(global-linum-mode t) ;; enable line numbers
 
 (setq auto-save-file-name-transforms
       `((".*" ,(concat user-emacs-directory "auto-save/") t)))
@@ -48,6 +57,8 @@
 
 (global-set-key [f2] 'neotree-toggle)
 (global-set-key (kbd "C-x g") 'magit-status)
+(global-set-key [C-f1] 'show-file-name)
+
 
 ;; Python settings
 ;; ------------------------------
