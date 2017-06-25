@@ -13,10 +13,4 @@ else
     alias emacs=/usr/bin/emacs25
 fi
 
-alias fuck='eval $(thefuck $(fc -ln -1))'
 alias tree='ls -R | grep ":$" | sed -e "s/:$//" -e "s/[^-][^\/]*\//--/g" -e "s/^/   /" -e "s/-/|/"'
-
-# Python tools
-alias pyclean='find . -name "*.pyc" -exec rm {} \;'
-alias pydist='python setup.py sdist upload -r ipypi'
-alias pydev='python setup.py develop --no-deps'
