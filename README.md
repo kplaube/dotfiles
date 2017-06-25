@@ -34,4 +34,29 @@ do, you'll need the `emacs 2.5+`.
 This configuration has some good stuff, like a Python environment, project management
 and git integration.
 
+Also, check my [Vim repository](https://github.com/kplaube/vimfiles).
+
+Shortcuts
+---------
+
+My aliases:
+- `mvim`: Opens MacVim or Gvim
+- `netstat_osx`: Shortcut for `sudo lsof -i -P`
+- `tm`: Shows memory information (shortcut for `top -o vsize`)
+- `tree`: Shows the current folder as a tree
+- `tu`: Shows CPU information (shortcut for `top -o cpu`)
+
+Oh My ZSH:
+- Python:
+    - `pyclear`
+    - `pyfind`
+    - `pygrep`
+- Ruby:
+    - `rubies`
+    - `gemsets`
+- Tmux:
+    - `tkss`: Kill session
+    - `tksv`: Kill server
+    - `tl`: List sessions
+
 Enjoy :)
