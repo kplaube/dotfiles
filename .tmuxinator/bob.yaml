@@ -1,0 +1,10 @@
+# ~/.tmuxinator/bob.yml
+
+name: bob
+root: ~/Projects/bob
+
+windows:
+  - editor:
+      layout: main-vertical
+      panes:
+        - nvm use

@@ -10,5 +10,4 @@ windows:
   - cli:
       layout: main-vertical
       panes:
-        - echo "Run server"
-        - echo "Tests"
+        - echo "Yo"
