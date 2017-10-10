@@ -1,7 +1,7 @@
 export ZSH=~/.oh-my-zsh
 
 ZSH_THEME="agnoster"
-plugins=(autoenv nvm python pyenv rvm tmux tmuxinator)
+plugins=(autoenv golang nvm python pyenv rvm tmux tmuxinator)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -10,7 +10,6 @@ source $ZSH/oh-my-zsh.sh
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
-# Preferred editor for local and remote sessions
 export EDITOR='vim'
 
 # Personal aliases
@@ -21,3 +20,13 @@ PATH=$PATH:$HOME/.rvm/bin
 
 # Activate lua env
 export PATH=$PATH:$HOME/.luarocks/bin
+
+# Activate go path
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/klaus/Workspace/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/klaus/Workspace/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/klaus/Workspace/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/klaus/Workspace/google-cloud-sdk/completion.zsh.inc'; fi
