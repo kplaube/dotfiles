@@ -15,6 +15,9 @@ export EDITOR='vim'
 # Personal aliases
 source ~/.my-aliases.sh
 
+# Activate local Python
+PATH=$PATH:$HOME/Library/Python/2.7/bin
+
 # Activate rvm
 PATH=$PATH:$HOME/.rvm/bin
 
