@@ -10,6 +10,11 @@ I strongly recommend you to use
 [Zsh](http://www.zsh.org/) with [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh/). It's a
 wonderful framework that automates a lot of work you do in your daily routine.
 
+Also, you'll need:
+
+- [autoenv](https://github.com/kennethreitz/autoenv)
+- [tmux](https://github.com/tmux/tmux/wiki)
+
 Installing
 ----------
 
