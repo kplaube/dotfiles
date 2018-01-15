@@ -25,7 +25,7 @@ PATH=$PATH:$HOME/.rvm/bin
 export PATH=$PATH:$HOME/.luarocks/bin
 
 # Activate go path
-export GOPATH=$HOME/go
+export GOPATH=$HOME/Workspace/go
 export PATH=$PATH:$GOPATH/bin
 
 # The next line updates PATH for the Google Cloud SDK.
