@@ -14,11 +14,15 @@ Also, you'll need:
 
 - [autoenv](https://github.com/kennethreitz/autoenv)
 - [tmux](https://github.com/tmux/tmux/wiki)
+- [Powerline fonts](https://powerline.readthedocs.io/en/master/installation/linux.html#fonts-installation)
 
 Installing
 ----------
 
-First of all, you'll need to install oh-my-zsh:
+First of all, you'll need to install ZSH by using your system's package manager. Do the same for tmux,
+if you want to use the tool.
+
+Afterwards, you'll need to install oh-my-zsh:
 
 ```$ sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"```
 
