@@ -1,0 +1,17 @@
+{
+  "breadcrumbs.enabled": true,
+  "editor.fontFamily": "'Droid Sans Mono for Powerline', Monaco, 'Courier New', monospace",
+  "editor.fontSize": 15,
+  "editor.formatOnSave": true,
+  "editor.minimap.enabled": false,
+  "python.venvFolders": ["/Users/klaus/.local/share/virtualenvs/"],
+  "terminal.integrated.fontSize": 15,
+  "terminal.integrated.shell.osx": "/bin/zsh",
+  "vim.easymotion": true,
+  "vim.leader": ",",
+  "window.title": "${activeEditorLong}${separator}${rootName}",
+  "window.zoomLevel": 0,
+  "workbench.colorTheme": "Dracula",
+  "workbench.iconTheme": "material-icon-theme",
+  "diffEditor.ignoreTrimWhitespace": false
+}

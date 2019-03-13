@@ -1,8 +1,0 @@
-# ~/..tmuxinator/go.yml
-
-name: go
-root: ~/go/src/github.com/kplaube/
-
-windows:
-  - editor:
-  - cli:

@@ -1,19 +1,21 @@
 export ZSH=~/.oh-my-zsh
 
-ZSH_THEME="agnoster"
-plugins=(autoenv golang nvm python pyenv rvm tmux tmuxinator)
+ZSH_THEME="robbyrussell"
+plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
-
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
-export EDITOR='vim'
+export EDITOR='nvim'
 
 # Personal aliases
 source ~/.my-aliases.sh
+
+# Activate direnv
+eval "$(direnv hook zsh)"
 
 # Activate local Python
 PATH=$PATH:$HOME/Library/Python/2.7/bin

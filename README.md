@@ -1,71 +1,40 @@
-My dotfiles
-===========
+# My dotfiles
 
-A set of aliases and small tools that makes my life easier.
+A set of aliases, small tools, and vim configuration that makes my life easier.
 
-Dependencies
-------------
+## Dependencies
 
-I strongly recommend you to use
-[Zsh](http://www.zsh.org/) with [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh/). It's a
-wonderful framework that automates a lot of work you do in your daily routine.
+- Editor:
+  - [Visual Studio Code](https://code.visualstudio.com/)
+- Shell:
+  - [direnv](https://direnv.net/): Environment switcher for the shell
+  - [iTermocil](https://github.com/TomAnthony/itermocil): pre-configured layouts of windows and panes in iTerm2 (Mac only)
+  - [Zsh](http://www.zsh.org/): A cool alternative for Bash
+  - [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh/): Community-driven framework for managing zsh configuration
 
-Also, you'll need:
+## Installing
 
-- [autoenv](https://github.com/kennethreitz/autoenv)
-- [tmux](https://github.com/tmux/tmux/wiki)
-- [Powerline fonts](https://powerline.readthedocs.io/en/master/installation/linux.html#fonts-installation)
-
-Installing
-----------
-
-First of all, you'll need to install ZSH by using your system's package manager. Do the same for tmux,
-if you want to use the tool.
+First of all, you'll need to install [direnv](https://direnv.net/index.html#install), [iTermocil](https://github.com/TomAnthony/itermocil#installing-itermocil), Zsh, and [VS Code](https://code.visualstudio.com/docs/setup/setup-overview) by using your system's package manager.
 
 Afterwards, you'll need to install oh-my-zsh:
 
-```$ sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"```
+    $ sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 You can install the scripts through the following command:
 
-```$ make install```
+    $ make install
 
-For development purposes, you can make a symbolic link using another `make` task:
+## Shortcuts
 
-```$ make develop```
+### My aliases:
 
-Emacs and init.el
------------------
-
-It's not mandatory to use [Emacs](https://www.gnu.org/software/emacs/), but if you
-do, you'll need the `emacs 2.5+`.
-
-This configuration has some good stuff, like a Python environment, project management
-and git integration.
-
-Also, check my [Vim repository](https://github.com/kplaube/vimfiles).
-
-Shortcuts
----------
-
-My aliases:
-- `mvim`: Opens MacVim or Gvim
 - `netstat_osx`: Shortcut for `sudo lsof -i -P`
 - `tm`: Shows memory information (shortcut for `top -o vsize`)
 - `tree`: Shows the current folder as a tree
 - `tu`: Shows CPU information (shortcut for `top -o cpu`)
 
-Oh My ZSH:
-- Python:
-    - `pyclear`
-    - `pyfind`
-    - `pygrep`
-- Ruby:
-    - `rubies`
-    - `gemsets`
-- Tmux:
-    - `tkss`: Kill session
-    - `tksv`: Kill server
-    - `tl`: List sessions
+### oh-my-zsh
+
+- [git](https://github.com/robbyrussell/oh-my-zsh/wiki/Plugin:git)
 
 Enjoy :)

@@ -1,37 +1,43 @@
 CURDIR=`pwd`
-ZSHRC_LOCAL_FILE=$(CURDIR)/.zshrc
-ZSHRC_HOME_FILE=$(HOME)/.zshrc
+
 ALIASES_LOCAL_FILE=$(CURDIR)/.my-aliases.sh
 ALIASES_HOME_FILE=$(HOME)/.my-aliases.sh
-EMACS_LOCAL_FILE=$(CURDIR)/init.el
-EMACS_HOME_FILE=$(HOME)/.emacs.d
-EMACS_HOME_INIT_FILE=$(EMACS_HOME_FILE)/init.el
-TMUXCONF_LOCAL_FILE=$(CURDIR)/.tmux.conf
-TMUXCONF_HOME_FILE=$(HOME)/.tmux.conf
-TMUXINATOR_LOCAL_FOLDER=$(CURDIR)/.tmuxinator
-TMUXINATOR_HOME_FOLDER=$(HOME)/.tmuxinator
+ITERMOCIL_LOCAL_FOLDER=$(CURDIR)/.itermocil
+ITERMOCIL_HOME_FOLDER=$(HOME)/.itermocil
+ITERMOCIL_LOCAL_TRADESHIFT_FOLDER=$(ITERMOCIL_LOCAL_FOLDER)/tradeshift
+VSCODE_LOCAL_FILE=$(CURDIR)/settings.json
+VSCODE_HOME_FILE=$(HOME)/Library/Application\ Support/Code/User/settings.json
+ZSHRC_LOCAL_FILE=$(CURDIR)/.zshrc
+ZSHRC_HOME_FILE=$(HOME)/.zshrc
 
 help:
 	@echo "Let me help you with these awesome tasks"
 	@echo ""
 	@echo "Usage:"
-	@echo "    make install            install .bash_profile and .zshrc"
-	@echo "    make develop            make a symbolic link of .bash_profile and .zshrc to your $HOME"
+	@echo "    make clean              removes everything related to this project from your home
+	@echo "    make install            install zshrc, aliases and vim files
 	@echo ""
 
-install: _create_emacs_dir
-	cp $(ALIASES_LOCAL_FILE) $(ALIASES_HOME_FILE)
-	cp $(ZSHRC_LOCAL_FILE) $(ZSHRC_HOME_FILE)
-	cp $(EMACS_LOCAL_FILE) $(EMACS_HOME_INIT_FILE)
-	cp $(TMUXCONF_LOCAL_FILE) $(TMUXCONF_HOME_FILE)
-	cp -r $(TMUXINATOR_LOCAL_FOLDER) $(TMUXINATOR_HOME_FOLDER)
+clean:
+	rm $(ZSHRC_HOME_FILE)
+	rm $(ALIASES_HOME_FILE)
 
-develop: _create_emacs_dir
+install: _setup_alises _setup_itermocil _setup_vscode _setup_zsh
+	@echo "\nDone! :D"
+
+_setup_alises:
+	@echo "\nSetting up aliases..."
 	ln -sf $(ALIASES_LOCAL_FILE) $(ALIASES_HOME_FILE)
-	ln -sf $(ZSHRC_LOCAL_FILE) $(ZSHRC_HOME_FILE)
-	ln -sf $(EMACS_LOCAL_FILE) $(EMACS_HOME_INIT_FILE)
-	ln -sf $(TMUXCONF_LOCAL_FILE) $(TMUXCONF_HOME_FILE)
-	ln -sf $(TMUXINATOR_LOCAL_FOLDER) $(TMUXINATOR_HOME_FOLDER)
 
-_create_emacs_dir:
-	mkdir -p $(EMACS_HOME_FILE)
+_setup_itermocil:
+	@echo "\nSetting up iTermocil..."
+	mkdir -p $(ITERMOCIL_HOME_FOLDER)
+	ln -sf $(ITERMOCIL_LOCAL_TRADESHIFT_FOLDER)/*.yml $(ITERMOCIL_HOME_FOLDER)/
+
+_setup_vscode:
+	@echo "\nSetting up VS Code..."
+	ln -sf $(VSCODE_LOCAL_FILE) $(VSCODE_HOME_FILE)
+
+_setup_zsh:
+	@echo "\nSetting up zsh..."
+	ln -sf $(ZSHRC_LOCAL_FILE) $(ZSHRC_HOME_FILE)
