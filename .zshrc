@@ -9,7 +9,7 @@ source $ZSH/oh-my-zsh.sh
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
-export EDITOR='nvim'
+export EDITOR='vim'
 
 # Personal aliases
 source ~/.my-aliases.sh
