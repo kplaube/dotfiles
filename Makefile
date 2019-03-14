@@ -5,6 +5,8 @@ ALIASES_HOME_FILE=$(HOME)/.my-aliases.sh
 ITERMOCIL_LOCAL_FOLDER=$(CURDIR)/.itermocil
 ITERMOCIL_HOME_FOLDER=$(HOME)/.itermocil
 ITERMOCIL_LOCAL_TRADESHIFT_FOLDER=$(ITERMOCIL_LOCAL_FOLDER)/tradeshift
+VIM_LOCAL_FILE=$(CURDIR)/.vimrc
+VIM_HOME_FILE=$(HOME)/.vimrc
 VSCODE_LOCAL_FILE=$(CURDIR)/settings.json
 VSCODE_HOME_FILE=$(HOME)/Library/Application\ Support/Code/User/settings.json
 ZSHRC_LOCAL_FILE=$(CURDIR)/.zshrc
@@ -22,7 +24,7 @@ clean:
 	rm $(ZSHRC_HOME_FILE)
 	rm $(ALIASES_HOME_FILE)
 
-install: _setup_alises _setup_itermocil _setup_vscode _setup_zsh
+install: _setup_alises _setup_itermocil _setup_vim _setup_vscode _setup_zsh
 	@echo "\nDone! :D"
 
 _setup_alises:
@@ -33,6 +35,11 @@ _setup_itermocil:
 	@echo "\nSetting up iTermocil..."
 	mkdir -p $(ITERMOCIL_HOME_FOLDER)
 	ln -sf $(ITERMOCIL_LOCAL_TRADESHIFT_FOLDER)/*.yml $(ITERMOCIL_HOME_FOLDER)/
+
+_setup_vim:
+	@echo "\nSetting up Vim..."
+	curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+	ln -sf $(VIM_LOCAL_FILE) $(VIM_HOME_FILE)
 
 _setup_vscode:
 	@echo "\nSetting up VS Code..."
