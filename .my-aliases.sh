@@ -8,5 +8,5 @@ if [ "$OS" = "Darwin" ]; then
     alias tu='top -o cpu' # cpu
 fi
 
-alias vim='nvim'
+alias mvim='/Applications/MacVim.app/Contents/MacOS/Vim -g'
 alias tree='ls -R | grep ":$" | sed -e "s/:$//" -e "s/[^-][^\/]*\//--/g" -e "s/^/   /" -e "s/-/|/"'
