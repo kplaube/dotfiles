@@ -1,6 +1,6 @@
 export ZSH=~/.oh-my-zsh
 
-ZSH_THEME="robbyrussell"
+ZSH_THEME="cobalt2"
 plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
@@ -14,14 +14,21 @@ export EDITOR='vim'
 # Personal aliases
 source ~/.my-aliases.sh
 
+# Tradeshift
+source ~/.tradeshift/settings
+
 # Activate direnv
 eval "$(direnv hook zsh)"
 
 # Activate local Python
-PATH=$PATH:$HOME/Library/Python/2.7/bin
+eval "$(pyenv init -)"
 
 # Activate rvm
 PATH=$PATH:$HOME/.rvm/bin
+
+# Activate nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
 # Activate lua env
 export PATH=$PATH:$HOME/.luarocks/bin
@@ -30,8 +37,14 @@ export PATH=$PATH:$HOME/.luarocks/bin
 export GOPATH=$HOME/Workspace/go
 export PATH=$PATH:$GOPATH/bin
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/klaus/Workspace/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/klaus/Workspace/google-cloud-sdk/path.zsh.inc'; fi
+# Activate jenv
+export PATH="$HOME/.jenv/bin:$PATH"
+eval "$(jenv init -)"
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/Users/klaus/Workspace/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/klaus/Workspace/google-cloud-sdk/completion.zsh.inc'; fi
+if [ -f '/Users/klaus/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/klaus/google-cloud-sdk/completion.zsh.inc'; fi
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/klaus/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/klaus/google-cloud-sdk/path.zsh.inc'; fi
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

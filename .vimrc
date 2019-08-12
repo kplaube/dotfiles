@@ -1,8 +1,13 @@
-" My Vimrc file
+" My Vmrs file
 "
 " Key mappings ----------------------------------------------------------
 "
 " F1        - vim help
+"
+" -- Code actions
+"  F6       - show lint errors
+"  F7       - run fixers
+"  CTRL + space - code actions context menu
 "
 " -- Comments
 " gc        - comment out target of motion
@@ -22,9 +27,10 @@
 " ,,w       - forward easy motion for word
 "
 " -- Movement (code)
-"  K        - method/function signature
+"  K        - hover/documentation
 "  ,d       - go to definition
 "  ,n       - find references
+"  ,r       - rename
 "
 " -- Search
 " CTRL + P  - find file
@@ -44,24 +50,19 @@ call plug#begin('~/.vim/plugged')
 
 " Base
 Plug 'tpope/vim-sensible'               " a set of defaults
-Plug 'roxma/nvim-yarp'                  " needed for deoplete 
-Plug 'roxma/vim-hug-neovim-rpc'         " needed for deoplete
 
 " Code standards
-Plug 'w0rp/ale'                         " linting and fixing
+" Plug 'w0rp/ale'                         " linters & fixers
 Plug 'editorconfig/editorconfig-vim'    " editorconfig support
 Plug 'autozimu/LanguageClient-neovim', {
-\   'branch': 'next',
-\   'do': 'bash install.sh',
-\}
+            \ 'branch': 'next',
+            \ 'do': 'bash install.sh',
+            \ }
 Plug 'ruanyl/vim-sort-imports', { 'do': 'npm install -g import-sort-cli import-sort-parser-babylon import-sort-parser-typescript import-sort-style-module import-sort-style-renke import-sort-style-eslint' }
 
 " Colorschemes
 Plug 'vim-airline/vim-airline-themes'   " a lot of themes for vim-airline
 Plug 'dracula/vim'                      " the dracula theme for vim
-
-" Completion
-Plug 'Shougo/deoplete.nvim'             " dark powers autocomplete
 
 " Display
 Plug 'Valloric/ListToggle'              " toggle list
@@ -76,10 +77,12 @@ Plug 'scrooloose/nerdtree' | Plug 'Xuyuanp/nerdtree-git-plugin' | Plug 'tiagofum
 
 " Git
 Plug 'tpope/vim-fugitive' | Plug 'tpope/vim-rhubarb'
-"Plug 'mhinz/vim-signify'                " shows diff using vim columns
+Plug 'mhinz/vim-signify'                " shows diff using vim columns
 
 " Misc
 Plug 'tpope/vim-commentary'             " (un)comments blocks of code
+Plug 'tpope/vim-dispatch'               " async builds and commands
+Plug 'janko/vim-test'                   " running tests
 
 " Movement
 Plug 'easymotion/vim-easymotion'        " vim motion
@@ -95,6 +98,7 @@ set cmdheight=2                         " height of the command bar
 set completeopt=menuone,noselect
 set hlsearch                            " highlight all search matches
 set ignorecase                          " case insensitive search
+set lazyredraw                          " faster scroll when syntax on
 set mouse=a                             " active mouse
 set nobackup                            " no backups
 set noswapfile                          " no swap files
@@ -102,6 +106,7 @@ set nowrap                              " stop line breaking
 set nowritebackup                       " write the buffer to the original file
 set number                              " show line numbers
 set showmatch                           " set show matching parenthesis
+set signcolumn=yes                      " show column signs
 set splitbelow                          " :split opens below
 set splitright                          " :vsplit opens right
 
@@ -131,16 +136,6 @@ endif
 
 " Plugins settings ------------------------------------------------------
 
-" ALE
-let g:ale_fix_on_save = 1
-
-let g:ale_linters = {
-\   'javascript': ['eslint'],
-\}
-let g:ale_fixers = {
-\   'javascript': ['prettier'],
-\}
-
 " Ack.vim
 if executable('ag')
     let g:ackprg = 'ag --vimgrep'
@@ -149,16 +144,22 @@ endif
 " Airline
 let g:airline_powerline_fonts = 1
 let g:airline_theme = 'dracula'
-let g:airline#extensions#ale#enabled = 1
 
-" Deoplete
-let g:deoplete#enable_at_startup = 1
+" Ale
+let g:ale_fixers = {
+            \   '*': ['remove_trailing_lines', 'trim_whitespace'],
+            \   'javascript': ['prettier'],
+            \ }
+let g:ale_linters = {
+            \   'javascript': ['eslint'],
+            \ }
 
-" LanguageClient
+" LanguageClient-neovim
 let g:LanguageClient_serverCommands = {
-\   'javascript.jsx': ['/Users/klaus/.nvm/versions/node/v8.15.0/bin/typescript-language-server', '--stdio', '--tsserver-path', 'node_modules/.bin/tsserver'] 
-\}
-let g:LanguageClient_diagnosticsEnable = 0 " Let's ALE manage this
+            \ 'javascript': ['javascript-typescript-stdio'],
+            \ 'javascript.jsx': ['javascript-typescript-stdio'],
+            \ 'python': ['pyls'],
+            \ }
 
 " NERDTree
 let g:NERDTreeAutoDeleteBuffer = 1
@@ -171,14 +172,17 @@ let g:NERDTreePatternMatchHighlightFullName = 1
 let g:NERDTreeHighlightFolders = 1
 let g:NERDTreeHighlightFoldersFullName = 1
 
-" Vim-import-sort
-let g:import_sort_auto = 1
+" Test
+let test#strategy = 'dispatch'
+let test#python#runner = 'pytest'
+let test#python#pytest#executable = 'pytest'
 
 " Key Mappings ----------------------------------------------------------
 
 nmap <silent> <F2> :NERDTreeToggle<CR>
 nmap <silent> <F3> :call TodoList()<CR>
-nmap <silent> <F6> :LToggle<CR>:ALELint<CR>
+nmap <silent> <F6> :LToggle<CR>
+nmap <silent> <F7> :call LanguageClient#textDocument_formatting()<CR>:ALEFix<CR>
 
 " Search
 nmap <leader>f :LAck!<space>
@@ -205,10 +209,22 @@ vmap <C-x> "+c
 vmap <C-v> c<ESC>"+p
 imap <C-v> <ESC>"+pa
 
-" Language specific movements
-nmap K :call LanguageClient#textDocument_hover()<CR>
-nmap <leader>d :call LanguageClient#textDocument_definition({'gotoCmd': 'split'})<CR>
-nmap <leader>n :call LanguageClient#textDocument_references()<CR>
+" Language movements
+nnoremap <C-space> :call LanguageClient_contextMenu()<CR>
+nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
+nnoremap <leader>d :call LanguageClient#textDocument_definition({
+            \ 'gotoCmd': 'tabnew'
+            \ })<CR>
+nnoremap <leader>n :call LanguageClient#textDocument_references()<CR>
+nnoremap <leader>r :call LanguageClient#textDocument_rename()<CR>
+
+" Running tests
+nmap <leader>t :TestLast<CR>
+nmap <leader>tf :TestFile<CR>
+nmap <leader>tn :TestNearest<CR>
+nmap <leader>ts :TestSuite<CR>
+nmap <leader>tt :TestFile<CR>
+nmap <leader>tv :TestVisit<CR>
 
 " Functions -------------------------------------------------------------
 

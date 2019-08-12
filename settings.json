@@ -1,17 +1,54 @@
 {
   "breadcrumbs.enabled": true,
+  "diffEditor.ignoreTrimWhitespace": false,
+  "editor.cursorStyle": "line",
+  "editor.cursorWidth": 5,
+  "editor.cursorBlinking": "solid",
   "editor.fontFamily": "'Droid Sans Mono for Powerline', Monaco, 'Courier New', monospace",
   "editor.fontSize": 15,
+  "editor.fontWeight": "400",
   "editor.formatOnSave": true,
   "editor.minimap.enabled": false,
+  "editor.suggestSelection": "first",
+  "files.associations": {
+    "*.html": "html"
+  },
+  "files.exclude": {
+    "**/.classpath": true,
+    "**/.project": true,
+    "**/.settings": true,
+    "**/.factorypath": true
+  },
+  "files.insertFinalNewline": true,
+  "java.configuration.maven.userSettings": "/Users/klaus/.m2/settings.xml",
+  "java.home": "/Library/Java/JavaVirtualMachines/jdk-10.0.2.jdk/Contents/Home/",
+  "java.jdt.ls.vmargs": "-noverify -Xmx1G -XX:+UseG1GC -XX:+UseStringDeduplication -Ddownload.plugin.skip=true -Djavax.net.ssl.keyStore=/Users/klaus/Documents/certificates/klaus.laube@tradeshift.com.p12 -Djavax.net.ssl.keyStoreType=pkcs12 -Djavax.net.ssl.keyStorePassword=EnlanTOnIrEMIdEO -javaagent:\"/Users/klaus/.vscode/extensions/gabrielbb.vscode-lombok-0.9.8/server/lombok.jar\"",
+  "maven.executable.options": "-Ddownload.plugin.skip=true -Djavax.net.ssl.keyStore=/Users/klaus/Documents/certificates/klaus.laube@tradeshift.com.p12 -Djavax.net.ssl.keyStoreType=pkcs12 -Djavax.net.ssl.keyStorePassword=EnlanTOnIrEMIdEO",
+  "maven.executable.preferMavenWrapper": false,
+  "maven.terminal.favorites": [
+    {
+      "alias": "Solve dependencies",
+      "command": "clean dependency:sources dependency:resolve -Dclassifier=javadoc"
+    }
+  ],
+  "maven.terminal.useJavaHome": true,
+  "maven.view": "hierarchical",
+  "python.jediEnabled": false,
+  "python.linting.flake8Enabled": true,
   "python.venvFolders": ["/Users/klaus/.local/share/virtualenvs/"],
-  "terminal.integrated.fontSize": 15,
+  "sync.gist": "bbfedf13dccde3a103f21abcb57de94b",
+  "terminal.integrated.fontFamily": "'Droid Sans Mono for Powerline', Monaco, 'Courier New', monospace",
+  "terminal.integrated.fontSize": 14,
   "terminal.integrated.shell.osx": "/bin/zsh",
   "vim.easymotion": true,
   "vim.leader": ",",
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
   "window.title": "${activeEditorLong}${separator}${rootName}",
   "window.zoomLevel": 0,
-  "workbench.colorTheme": "Dracula",
+  "workbench.colorTheme": "Cobalt2",
   "workbench.iconTheme": "material-icon-theme",
-  "diffEditor.ignoreTrimWhitespace": false
+  "workbench.sideBar.location": "left",
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }
