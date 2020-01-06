@@ -1,6 +1,6 @@
 export ZSH=~/.oh-my-zsh
 
-ZSH_THEME="cobalt2"
+ZSH_THEME="agnoster"
 plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
@@ -34,12 +34,15 @@ export NVM_DIR="$HOME/.nvm"
 export PATH=$PATH:$HOME/.luarocks/bin
 
 # Activate go path
-export GOPATH=$HOME/Workspace/go
+export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 
 # Activate jenv
 export PATH="$HOME/.jenv/bin:$PATH"
 eval "$(jenv init -)"
+
+# Activate flutter
+export PATH="$HOME/Workspace/flutter/bin:$PATH"
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/klaus/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/klaus/google-cloud-sdk/completion.zsh.inc'; fi
