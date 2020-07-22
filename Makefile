@@ -2,9 +2,6 @@ CURDIR=`pwd`
 
 ALIASES_LOCAL_FILE=$(CURDIR)/.my-aliases.sh
 ALIASES_HOME_FILE=$(HOME)/.my-aliases.sh
-ITERMOCIL_LOCAL_FOLDER=$(CURDIR)/.itermocil
-ITERMOCIL_HOME_FOLDER=$(HOME)/.itermocil
-ITERMOCIL_LOCAL_TRADESHIFT_FOLDER=$(ITERMOCIL_LOCAL_FOLDER)/tradeshift
 VIM_LOCAL_FILE=$(CURDIR)/.vimrc
 VIM_HOME_FILE=$(HOME)/.vimrc
 VSCODE_LOCAL_FILE=$(CURDIR)/settings.json
@@ -24,17 +21,12 @@ clean:
 	rm $(ZSHRC_HOME_FILE)
 	rm $(ALIASES_HOME_FILE)
 
-install: _setup_alises _setup_itermocil _setup_vim _setup_vscode _setup_zsh
+install: _setup_alises _setup_vim _setup_vscode _setup_zsh
 	@echo "\nDone! :D"
 
 _setup_alises:
 	@echo "\nSetting up aliases..."
 	ln -sf $(ALIASES_LOCAL_FILE) $(ALIASES_HOME_FILE)
-
-_setup_itermocil:
-	@echo "\nSetting up iTermocil..."
-	mkdir -p $(ITERMOCIL_HOME_FOLDER)
-	ln -sf $(ITERMOCIL_LOCAL_TRADESHIFT_FOLDER)/*.yml $(ITERMOCIL_HOME_FOLDER)/
 
 _setup_vim:
 	@echo "\nSetting up Vim..."
