@@ -4,11 +4,12 @@
   "editor.cursorBlinking": "solid",
   "editor.cursorStyle": "line",
   "editor.cursorWidth": 5,
-  "editor.fontFamily": "'Droid Sans Mono for Powerline', Monaco, 'Courier New', monospace",
+  "editor.fontFamily": "'Courier Prime', 'Courier New', Monaco, monospace",
   "editor.fontSize": 15,
   "editor.fontWeight": "400",
   "editor.formatOnSave": true,
   "editor.minimap.enabled": false,
+  "editor.renderWhitespace": "all",
   "editor.suggestSelection": "first",
   "files.associations": {
     "*.html": "html"
@@ -21,31 +22,13 @@
     "**/build": true
   },
   "files.insertFinalNewline": true,
-  "go.gopath": "/Users/klaus/go",
-  "java.configuration.maven.userSettings": "/Users/klaus/.m2/settings.xml",
-  "java.home": "/Library/Java/JavaVirtualMachines/jdk-10.0.2.jdk/Contents/Home/",
-  "java.jdt.ls.vmargs": "-noverify -Xmx1G -XX:+UseG1GC -XX:+UseStringDeduplication -Dspring.profiles.active=local -javaagent:\"/Users/klaus/.vscode/extensions/gabrielbb.vscode-lombok-0.9.9/server/lombok.jar\"",
-  "java.test.config": {
-    "name": "common",
-    "workingDirectory": "${workspaceFolder}",
-    "vmargs": [
-      "-Dspring.profiles.active=local"
-    ]
-  },
-  "maven.executable.options": "-Djavax.net.ssl.keyStore=/Users/klaus/Documents/certificates/klaus.laube@tradeshift.com.p12 -Djavax.net.ssl.keyStoreType=pkcs12 -Djavax.net.ssl.keyStorePassword=EnlanTOnIrEMIdEO",
-  "maven.terminal.favorites": [
-    {
-      "alias": "Solve dependencies",
-      "command": "clean dependency:sources dependency:resolve -Dclassifier=javadoc"
-    }
-  ],
-  "maven.terminal.useJavaHome": true,
-  "maven.view": "hierarchical",
-  "python.jediEnabled": false,
+  "prettier.disableLanguages": ["django-html"],
+  "python.defaultInterpreterPath": "/Users/klaus/.pyenv/versions/3.8.2/bin/python",
+  "python.languageServer": "Microsoft",
   "python.linting.flake8Enabled": true,
-  "python.venvFolders": [
-    "/Users/klaus/.local/share/virtualenvs/"
-  ],
+  "python.linting.mypyEnabled": true,
+  "python.venvFolders": ["/Users/klaus/.local/share/virtualenvs/"],
+  "sync.forceUpload": true,
   "sync.gist": "bbfedf13dccde3a103f21abcb57de94b",
   "terminal.integrated.fontFamily": "'Droid Sans Mono for Powerline', Monaco, 'Courier New', monospace",
   "terminal.integrated.fontSize": 14,
@@ -55,21 +38,19 @@
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
   "window.title": "${activeEditorLong}${separator}${rootName}",
   "window.zoomLevel": 0,
+  "workbench.colorTheme": "Dracula",
+  "workbench.iconTheme": "material-icon-theme",
   "workbench.sideBar.location": "left",
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "java.errors.incompleteClasspath.severity": "ignore",
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "sync.forceUpload": true,
-  "workbench.iconTheme": "vscode-icons-mac",
-  "java.maven.downloadSources": true,
-  "maven.executable.preferMavenWrapper": false,
-  "workbench.colorTheme": "Dracula",
-  "sqltools.useNodeRuntime": true,
   "[yaml]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[xml]": {
+    "editor.defaultFormatter": "redhat.vscode-xml"
   }
 }
