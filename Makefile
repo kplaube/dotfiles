@@ -36,7 +36,8 @@ else
 	brew install view
 endif
 	@echo "\nSetting up Vim..."
-	curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+	curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 	ln -sf $(VIM_LOCAL_FILE) $(VIM_HOME_FILE)
 
 _setup_zsh:
