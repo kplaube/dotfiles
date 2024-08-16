@@ -3,22 +3,26 @@ import = ["~/.config/alacritty/tokyo-night-storm.toml"]
 [env]
 TERM = "xterm-256color"
 
-[cursor]
-style = { shape = "Block", blinking = "On" }
+[colors]
+transparent_background_colors = true
+
+[cursor.style]
+blinking = "On"
+shape = "Block"
 
 [font]
 normal = { family = "FiraCode Nerd Font Mono", style = "Regular" }
-size = 13
+size = 14
 
 [selection]
 save_to_clipboard = true
 
 [shell]
 program = "/bin/zsh"
-args = ["-l", "-c", "tmux new-session -A -s main-alacritty"]
+args = ["-l", "-c", "tmux"]
 
 [window]
-decorations = "Full"
+decorations = "Buttonless"
 dynamic_padding = true
 dynamic_title = true
 opacity = 0.97

@@ -26,8 +26,13 @@ echo ""
 
 # tmux
 # ----
-echo ">> Overwriting tmux configuration..."
+if [ ! -f $HOME/.tmux/plugins/tpm ]; then
+  echo ">> Installing tmux plugin manager..."
+  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+fi
+
 if [ -f $HOME/.tmux.conf ]; then
+  echo ">> Overwriting tmux configuration..."
   mv $HOME/.tmux.conf $HOME/.tmux.conf.bak
 fi
 
@@ -65,6 +70,8 @@ if [ ! -d $NVIM_PATH ]; then
   echo ">> Overwriting NeoVim configuration..."
   mv $NVIM_PATH/lua/config $NVIM_PATH/lua/config.bak
   ln -s $PWD/nvim/lua/config $NVIM_PATH/lua/config
+  mv $NVIM_PATH/lua/plugins $NVIM_PATH/lua/plugins.bak
+  ln -s $PWD/nvim/lua/plugins $NVIM_PATH/lua/plugins
 else
   echo "NeoVim + LazyVim already installed."
 fi
