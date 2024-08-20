@@ -95,11 +95,8 @@ source $ZSH/oh-my-zsh.sh
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
-#
-# Example aliases
-alias gulb="git checkout main; git pull origin main --rebase -f; git checkout -; git rebase main"
-alias guls="git checkout main; git pull origin main --rebase -f"
-alias workon_alp="cd ~/Workspace/alp; source venv/bin/activate"
+source $HOME/.my-aliases.sh
+source $HOME/.my-aliases.private.sh
 
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"

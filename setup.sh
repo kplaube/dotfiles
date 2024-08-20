@@ -21,6 +21,13 @@ echo ">> Overwriting zshrc..."
 mv $HOME/.zshrc $HOME/.zshrc.bak
 ln -s $PWD/zshrc $HOME/.zshrc
 
+echo ">> Setting up custom aliases..."
+ln -s $PWD/my-aliases.sh $HOME/.my-aliases.sh
+
+if [ ! -f $PWD/my-aliases.private.sh ]; then
+  ln -s $PWD/my-aliases.private.sh $HOME/.my-aliases.private.sh
+fi
+
 echo ">> Done"
 echo ""
 
