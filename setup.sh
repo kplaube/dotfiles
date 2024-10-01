@@ -31,6 +31,13 @@ fi
 echo ">> Done"
 echo ""
 
+# itermocil
+# ---------
+if [ ! -f $HOME/.itermocil ]; then
+  echo ">> Overwriting itermocil configuration..."
+  ln -s $PWD/itermocil $HOME/.itermocil
+fi
+
 # tmux
 # ----
 if [ ! -f $HOME/.tmux/plugins/tpm ]; then
