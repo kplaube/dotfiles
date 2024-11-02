@@ -31,13 +31,16 @@
     "JSON": ["json", "jsonc", "*.code-snippets"]
   },
   "relative_line_numbers": true,
+  "tabs": {
+    "file_icons": true
+  },
   "telemetry": {
     "diagnostics": false,
     "metrics": false
   },
   "theme": {
     "mode": "system",
-    "light": "Gruvbox Light Hard",
+    "light": "Gruvbox Dark",
     "dark": "Gruvbox Dark Hard"
   },
   "toolbar": {
