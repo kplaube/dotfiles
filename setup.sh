@@ -1,32 +1,13 @@
 #!/bin/bash
 
 # Alacritty
+# ---------
+echo ">> Installing Alacritty..."
+brew install --cask alacritty
+
 echo ">> Configuring Alacritty..."
 mv $HOME/.config/alacritty $HOME/.config/alacritty.bak
 ln -s $PWD/alacritty/ $HOME/.config/alacritty
-
-echo ">> Done"
-echo ""
-
-# zsh
-# ---
-echo ">> Installing oh-my-zsh..."
-if [ ! -d $HOME/.oh-my-zsh ]; then
-  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-else
-  echo "oh-my-zsh already installed."
-fi
-
-echo ">> Overwriting zshrc..."
-mv $HOME/.zshrc $HOME/.zshrc.bak
-ln -s $PWD/zshrc $HOME/.zshrc
-
-echo ">> Setting up custom aliases..."
-ln -s $PWD/my-aliases.sh $HOME/.my-aliases.sh
-
-if [ ! -f $PWD/my-aliases.private.sh ]; then
-  ln -s $PWD/my-aliases.private.sh $HOME/.my-aliases.private.sh
-fi
 
 echo ">> Done"
 echo ""
@@ -40,6 +21,8 @@ fi
 
 # tmux
 # ----
+brew install tmux
+
 if [ ! -f $HOME/.tmux/plugins/tpm ]; then
   echo ">> Installing tmux plugin manager..."
   git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
@@ -104,6 +87,29 @@ mv $ZED_SETTINGS_FOLDER/{settings,tasks}.json /tmp/
 
 ln -s $PWD/zed/settings.json $ZED_SETTINGS_FOLDER/settings.json
 ln -s $PWD/zed/tasks.json $ZED_SETTINGS_FOLDER/tasks.json
+
+echo ">> Done"
+echo ""
+
+# zsh
+# ---
+echo ">> Installing oh-my-zsh..."
+if [ ! -d $HOME/.oh-my-zsh ]; then
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+else
+  echo "oh-my-zsh already installed."
+fi
+
+echo ">> Overwriting zshrc..."
+mv $HOME/.zshrc $HOME/.zshrc.bak
+ln -s $PWD/zshrc $HOME/.zshrc
+
+echo ">> Setting up custom aliases..."
+ln -s $PWD/my-aliases.sh $HOME/.my-aliases.sh
+
+if [ ! -f $PWD/my-aliases.private.sh ]; then
+  ln -s $PWD/my-aliases.private.sh $HOME/.my-aliases.private.sh
+fi
 
 echo ">> Done"
 echo ""
