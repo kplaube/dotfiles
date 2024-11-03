@@ -83,7 +83,7 @@ ZED_SETTINGS_FOLDER=$HOME/.config/zed
 echo ">> Installing Zed and custom settings..."
 brew install --cask zed
 
-mv $ZED_SETTINGS_FOLDER/{settings,tasks}.json /tmp/
+mv -f $ZED_SETTINGS_FOLDER/{settings,tasks}.json /tmp/
 
 ln -s $PWD/zed/settings.json $ZED_SETTINGS_FOLDER/settings.json
 ln -s $PWD/zed/tasks.json $ZED_SETTINGS_FOLDER/tasks.json
