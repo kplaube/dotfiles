@@ -98,5 +98,9 @@ source $ZSH/oh-my-zsh.sh
 source "$HOME/.my-aliases.sh"
 [[ -s "$HOME/.my-aliases.private.sh" ]] && source "$HOME/.my-aliases.private.sh"
 
+# Go
+export GOPATH="$HOME/go"
+
+# Java
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
