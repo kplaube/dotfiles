@@ -12,10 +12,10 @@ ln -s $PWD/alacritty/ $HOME/.config/alacritty
 echo ">> Done"
 echo ""
 
-# itermocil
+# iTermocil
 # ---------
 if [ ! -f $HOME/.itermocil ]; then
-  echo ">> Overwriting itermocil configuration..."
+  echo ">> Overwriting iTermocil configuration..."
   ln -s $PWD/itermocil $HOME/.itermocil
 fi
 
@@ -35,8 +35,8 @@ fi
 
 ln -s $PWD/tmux.conf $HOME/.tmux.conf
 
-# Node
-# ----
+# NodeJS
+# ------
 NODE_VERSION=20
 NVM_EXEC=$HOME/.nvm/nvm.sh
 
@@ -101,8 +101,12 @@ else
 fi
 
 echo ">> Overwriting zshrc..."
-mv $HOME/.zshrc $HOME/.zshrc.bak
+mv -f $HOME/.zshrc $HOME/.zshrc.bak
 ln -s $PWD/zshrc $HOME/.zshrc
+
+echo ">> Overwriting zprofile..."
+mv -f $HOME/.zprofile $HOME/.zprofile.bak
+ln -s $PWD/zprofile $HOME/.zprofile
 
 echo ">> Setting up custom aliases..."
 ln -s $PWD/my-aliases.sh $HOME/.my-aliases.sh
