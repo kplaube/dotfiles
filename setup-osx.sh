@@ -1,26 +1,9 @@
 #!/bin/bash
 
-# Alacritty
-# ---------
-echo ">> Installing Alacritty..."
-brew install --cask alacritty
-
-echo ">> Configuring Alacritty..."
-mv $HOME/.config/alacritty $HOME/.config/alacritty.bak
-ln -s $PWD/alacritty/ $HOME/.config/alacritty
-
-echo ">> Done"
-echo ""
-
-# iTermocil
-# ---------
-if [ ! -f $HOME/.itermocil ]; then
-  echo ">> Overwriting iTermocil configuration..."
-  ln -s $PWD/itermocil $HOME/.itermocil
-fi
-
 # tmux
 # ----
+echo ">> Installing tmux..."
+
 brew install tmux
 
 if [ ! -f $HOME/.tmux/plugins/tpm ]; then
@@ -34,6 +17,47 @@ if [ -f $HOME/.tmux.conf ]; then
 fi
 
 ln -s $PWD/tmux.conf $HOME/.tmux.conf
+
+# fish
+# ----
+echo ">> Installing fish shell..."
+brew install fish
+sudo ln -s /opt/homebrew/bin/fish /usr/local/bin/fish
+
+echo ">> Setting up custom aliases..."
+ln -s $PWD/my-aliases.fish $HOME/.my-aliases.fish
+
+if [ ! -f $PWD/my-aliases.private.fish ]; then
+    ln -s $PWD/my-aliases.private.fish $HOME/.my-aliases.private.fish
+fi
+
+echo ">> Setting up custom fish configuration..."
+
+if [ -f $HOME/.config/fish/config.fish ]; then
+  mv $HOME/.config/fish/config.fish $HOME/.config/fish/config.fish.bak
+fi
+
+ln -s $PWD/config.fish $HOME/.config/fish/config.fish
+
+echo ">> Done"
+echo ""
+
+# Alacritty
+# ---------
+echo ">> Installing Alacritty..."
+brew install --cask alacritty
+
+echo ">> Configuring Alacritty..."
+
+if [ -d $HOME/.config/alacritty ]; then
+  rm -f $HOME/.config/alacritty.bak
+  mv $HOME/.config/alacritty $HOME/.config/alacritty.bak
+fi
+
+ln -s $PWD/alacritty $HOME/.config/alacritty
+
+echo ">> Done"
+echo ""
 
 # NodeJS
 # ------
@@ -87,33 +111,6 @@ mv -f $ZED_SETTINGS_FOLDER/{settings,tasks}.json /tmp/
 
 ln -s $PWD/zed/settings.json $ZED_SETTINGS_FOLDER/settings.json
 ln -s $PWD/zed/tasks.json $ZED_SETTINGS_FOLDER/tasks.json
-
-echo ">> Done"
-echo ""
-
-# zsh
-# ---
-echo ">> Installing oh-my-zsh..."
-if [ ! -d $HOME/.oh-my-zsh ]; then
-  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-else
-  echo "oh-my-zsh already installed."
-fi
-
-echo ">> Overwriting zshrc..."
-mv -f $HOME/.zshrc $HOME/.zshrc.bak
-ln -s $PWD/zshrc $HOME/.zshrc
-
-echo ">> Overwriting zprofile..."
-mv -f $HOME/.zprofile $HOME/.zprofile.bak
-ln -s $PWD/zprofile $HOME/.zprofile
-
-echo ">> Setting up custom aliases..."
-ln -s $PWD/my-aliases.sh $HOME/.my-aliases.sh
-
-if [ ! -f $PWD/my-aliases.private.sh ]; then
-  ln -s $PWD/my-aliases.private.sh $HOME/.my-aliases.private.sh
-fi
 
 echo ">> Done"
 echo ""

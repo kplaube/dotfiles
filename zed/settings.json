@@ -58,6 +58,9 @@
         "directories": [".env", ".venv", "venv"],
         "activate_script": "default"
       }
+    },
+    "shell": {
+      "program": "/usr/local/bin/fish"
     }
   },
   "theme": {
