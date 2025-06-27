@@ -12,3 +12,10 @@ end
 
 # Go
 export GOPATH=$HOME/go
+
+# VSCode
+string match -q "$TERM_PROGRAM" "vscode"
+and . (code --locate-shell-integration-path fish)
+
+# Pyenv
+pyenv init - fish | source

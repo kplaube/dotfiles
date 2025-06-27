@@ -66,7 +66,7 @@
   "theme": {
     "mode": "dark",
     "light": "Gruvbox Light Soft",
-    "dark": "Xcode High Contrast Darker"
+    "dark": "Xcode Spartan"
   },
   "toolbar": {
     "quick_actions": false
