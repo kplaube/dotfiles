@@ -81,16 +81,19 @@ echo ""
 
 # NeoVim + LazyVim
 # ----------------
+echo ">> Installing Neovim..."
+brew install neovim
+
 NVIM_PATH=$HOME/.config/nvim
 mv $NVIM_PATH/lua/config $NVIM_PATH/lua/config.bak
 mv $NVIM_PATH/lua/plugins $NVIM_PATH/lua/plugins.bak
 
-echo ">> Installing NeoVim + LazyVim..."
+echo ">> Installing LazyVim..."
 if [ ! -d $NVIM_PATH ]; then
   git clone https://github.com/LazyVim/starter ~/.config/nvim
   rm -rf $NVIM_PATH/.git
 else
-  echo "NeoVim + LazyVim already installed."
+  echo "LazyVim already installed."
 fi
 
 echo ">> Overwriting NeoVim configuration..."
