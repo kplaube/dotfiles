@@ -40,16 +40,3 @@ ln -sf $PWD/alacritty $HOME/.config/alacritty
 
 echo ">> Done"
 echo ""
-
-# Zed
-# ---
-ZED_SETTINGS_FOLDER=$HOME/.config/zed
-
-echo ">> Installing Zed and custom settings..."
-brew install --cask zed
-
-ln -sf $PWD/zed/settings.json $ZED_SETTINGS_FOLDER/settings.json
-ln -sf $PWD/zed/tasks.json $ZED_SETTINGS_FOLDER/tasks.json
-
-echo ">> Done"
-echo ""

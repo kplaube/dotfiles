@@ -28,7 +28,7 @@ echo ">> Setting up custom aliases..."
 ln -s $PWD/my-aliases.fish $HOME/.my-aliases.fish
 
 if [ ! -f $PWD/my-aliases.private.fish ]; then
-    ln -s $PWD/my-aliases.private.fish $HOME/.my-aliases.private.fish
+  ln -s $PWD/my-aliases.private.fish $HOME/.my-aliases.private.fish
 fi
 
 echo ">> Setting up custom fish configuration..."
@@ -82,35 +82,20 @@ echo ""
 # NeoVim + LazyVim
 # ----------------
 NVIM_PATH=$HOME/.config/nvim
+mv $NVIM_PATH/lua/config $NVIM_PATH/lua/config.bak
+mv $NVIM_PATH/lua/plugins $NVIM_PATH/lua/plugins.bak
 
 echo ">> Installing NeoVim + LazyVim..."
 if [ ! -d $NVIM_PATH ]; then
   git clone https://github.com/LazyVim/starter ~/.config/nvim
   rm -rf $NVIM_PATH/.git
-
-  echo ">> Overwriting NeoVim configuration..."
-  mv $NVIM_PATH/lua/config $NVIM_PATH/lua/config.bak
-  ln -s $PWD/nvim/lua/config $NVIM_PATH/lua/config
-  mv $NVIM_PATH/lua/plugins $NVIM_PATH/lua/plugins.bak
-  ln -s $PWD/nvim/lua/plugins $NVIM_PATH/lua/plugins
 else
   echo "NeoVim + LazyVim already installed."
 fi
 
-echo ">> Done"
-echo ""
-
-# Zed
-# ---
-ZED_SETTINGS_FOLDER=$HOME/.config/zed
-
-echo ">> Installing Zed and custom settings..."
-brew install --cask zed
-
-mv -f $ZED_SETTINGS_FOLDER/{settings,tasks}.json /tmp/
-
-ln -s $PWD/zed/settings.json $ZED_SETTINGS_FOLDER/settings.json
-ln -s $PWD/zed/tasks.json $ZED_SETTINGS_FOLDER/tasks.json
+echo ">> Overwriting NeoVim configuration..."
+ln -s $PWD/nvim/config $NVIM_PATH/lua/config
+ln -s $PWD/nvim/plugins $NVIM_PATH/lua/plugins
 
 echo ">> Done"
 echo ""
