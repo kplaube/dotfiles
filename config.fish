@@ -19,3 +19,9 @@ and . (code --locate-shell-integration-path fish)
 
 # Pyenv
 pyenv init - fish | source
+
+# NVM
+export NVM_DIR="$HOME/.nvm"
+if test -f "$NVM_DIR/nvm.fish"
+    source "$NVM_DIR/nvm.fish"
+end
