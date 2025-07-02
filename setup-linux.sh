@@ -5,45 +5,6 @@
 sudo apt update
 sudo apt install build-essential snapd -y
 
-# NodeJS
-# ------
-echo ">> Installing NodeJS..."
-echo "-----------------------"
-
-sudo apt-get install nodejs -y
-
-NODE_VERSION=20
-NVM_EXEC=$HOME/.nvm/nvm.sh
-
-echo ">> Installing NVM + Node..."
-if [ ! -d $HOME/.nvm ]; then
-  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.0/install.sh | bash
-else
-  echo "NVM already installed."
-fi
-
-$NVM_EXEC install $NODE_VERSION
-$NVM_EXEC use default
-
-node -v
-
-echo ">> Done"
-echo ""
-
-# Pyenv
-# -----
-echo ">> Installing Pyenv..."
-echo "---------------------"
-
-if [ ! -d $HOME/.pyenv ]; then
-  curl -fsSL https://pyenv.run | bash
-else
-  echo "Pyenv already installed."
-fi
-
-echo ">> Done"
-echo ""
-
 # tmux
 # ----
 echo ">> Installing tmux..."
@@ -87,6 +48,11 @@ fi
 
 ln -s $PWD/config.fish $HOME/.config/fish/config.fish
 
+echo ">> Installing Fisher..."
+if command -v fish >/dev/null 2>&1; then
+  fish -c 'curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source; and fisher install jorgebucaran/fisher'
+fi
+
 echo ">> Done"
 echo ""
 
@@ -98,8 +64,27 @@ echo "--------------------------"
 sudo apt install alacritty
 
 echo ">> Configuring Alacritty..."
-mv $HOME/.config/alacritty $HOME/.config/alacritty.bak
+
+if [ -d $HOME/.config/alacritty ]; then
+  rm -rf $HOME/.config/alacritty.bak
+  mv $HOME/.config/alacritty $HOME/.config/alacritty.bak
+fi
+
 ln -s $PWD/alacritty $HOME/.config/alacritty
+
+echo ">> Done"
+echo ""
+
+# Pyenv
+# -----
+echo ">> Installing Pyenv..."
+echo "---------------------"
+
+if [ ! -d $HOME/.pyenv ]; then
+  curl -fsSL https://pyenv.run | bash
+else
+  echo "Pyenv already installed."
+fi
 
 echo ">> Done"
 echo ""
@@ -134,3 +119,8 @@ ln -s $PWD/nvim/plugins $NVIM_PATH/lua/plugins
 
 echo ">> Done"
 echo ""
+
+# Node.js + NVM
+# -------------
+fish -c 'fisher install jorgebucaran/nvm.fish'
+fish -c 'nvm install lts && nvm alias default lts'
