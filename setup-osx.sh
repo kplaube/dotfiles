@@ -3,6 +3,7 @@
 # tmux
 # ----
 echo ">> Installing tmux..."
+echo "---------------------"
 
 brew install tmux
 
@@ -18,9 +19,14 @@ fi
 
 ln -s $PWD/tmux.conf $HOME/.tmux.conf
 
+echo ">> Done"
+echo ""
+
 # fish
 # ----
 echo ">> Installing fish shell..."
+echo "---------------------------"
+
 brew install fish
 sudo ln -s /opt/homebrew/bin/fish /usr/local/bin/fish
 
@@ -32,12 +38,16 @@ if [ ! -f $PWD/my-aliases.private.fish ]; then
 fi
 
 echo ">> Setting up custom fish configuration..."
-
 if [ -f $HOME/.config/fish/config.fish ]; then
   mv $HOME/.config/fish/config.fish $HOME/.config/fish/config.fish.bak
 fi
 
 ln -s $PWD/config.fish $HOME/.config/fish/config.fish
+
+echo ">> Installing Fisher..."
+if command -v fish >/dev/null 2>&1; then
+  fish -c 'curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source; and fisher install jorgebucaran/fisher'
+fi
 
 echo ">> Done"
 echo ""
@@ -45,6 +55,8 @@ echo ""
 # Alacritty
 # ---------
 echo ">> Installing Alacritty..."
+echo "--------------------------"
+
 brew install --cask alacritty
 
 echo ">> Configuring Alacritty..."
@@ -59,22 +71,16 @@ ln -s $PWD/alacritty $HOME/.config/alacritty
 echo ">> Done"
 echo ""
 
-# NodeJS
-# ------
-NODE_VERSION=20
-NVM_EXEC=$HOME/.nvm/nvm.sh
+# Pyenv
+# -----
+echo ">> Installing Pyenv..."
+echo "---------------------"
 
-echo ">> Installing NVM + Node..."
-if [ ! -d $HOME/.nvm ]; then
-  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.0/install.sh | bash
+if [ ! -d $HOME/.pyenv ]; then
+  curl -fsSL https://pyenv.run | bash
 else
-  echo "NVM already installed."
+  echo "Pyenv already installed."
 fi
-
-$NVM_EXEC install $NODE_VERSION
-$NVM_EXEC use default
-
-node -v
 
 echo ">> Done"
 echo ""
@@ -82,11 +88,18 @@ echo ""
 # NeoVim + LazyVim
 # ----------------
 echo ">> Installing Neovim..."
+echo "-----------------------"
+
 brew install neovim
 
 NVIM_PATH=$HOME/.config/nvim
-mv $NVIM_PATH/lua/config $NVIM_PATH/lua/config.bak
-mv $NVIM_PATH/lua/plugins $NVIM_PATH/lua/plugins.bak
+
+if [ -d $NVIM_PATH/lua/config ]; then
+  mv $NVIM_PATH/lua/config $NVIM_PATH/lua/config.bak
+fi
+if [ -d $NVIM_PATH/lua/plugins ]; then
+  mv $NVIM_PATH/lua/plugins $NVIM_PATH/lua/plugins.bak
+fi
 
 echo ">> Installing LazyVim..."
 if [ ! -d $NVIM_PATH ]; then
@@ -102,3 +115,8 @@ ln -s $PWD/nvim/plugins $NVIM_PATH/lua/plugins
 
 echo ">> Done"
 echo ""
+
+# Node.js + NVM
+# -------------
+fish -c 'fisher install jorgebucaran/nvm.fish'
+fish -c "nvm install 'lts/*'"

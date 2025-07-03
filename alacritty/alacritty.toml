@@ -1,5 +1,3 @@
-live_config_reload = true
-
 [colors]
 transparent_background_colors = true
 
@@ -15,12 +13,12 @@ normal = { family = "JetBrainsMono Nerd Font", style = "Regular" }
 bold = { family = "JetBrainsMono Nerd Font", style = "Bold" }
 italic = { family = "JetBrainsMono Nerd Font", style = "Italic" }
 bold_italic = { family = "JetBrainsMono Nerd Font", style = "Bold Italic" }
-size = 12
+size = 13
 
 [selection]
 save_to_clipboard = true
 
-[shell]
+[terminal.shell]
 program = "/usr/local/bin/fish"
 args = ["-l", "-c", "tmux attach || tmux"]
 
