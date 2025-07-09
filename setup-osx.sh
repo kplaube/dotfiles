@@ -19,6 +19,28 @@ fi
 
 ln -s $PWD/tmux.conf $HOME/.tmux.conf
 
+echo "Installing tmuxinator..."
+brew install tmuxinator
+
+if [ ! -d $HOME/.tmuxinator ]; then
+  mkdir -p $HOME/.tmuxinator
+fi
+
+for f in "$HOME"/.tmuxinator/*; do
+  if [ -f "$f" ]; then
+    mv "$f" "$f.bk"
+  fi
+done
+
+if [ -d $PWD/tmuxinator.private ]; then
+  for f in $PWD/tmuxinator.private/*; do
+    echo "Found tmuxinator template file: $f"
+    if [ -f "$f" ]; then
+      ln -s "$PWD/tmuxinator.private/$(basename "$f")" "$HOME/.tmuxinator/$(basename "$f")"
+    fi
+  done
+fi
+
 echo ">> Done"
 echo ""
 
@@ -94,19 +116,24 @@ brew install neovim
 
 NVIM_PATH=$HOME/.config/nvim
 
-if [ -d $NVIM_PATH/lua/config ]; then
-  mv $NVIM_PATH/lua/config $NVIM_PATH/lua/config.bak
-fi
-if [ -d $NVIM_PATH/lua/plugins ]; then
-  mv $NVIM_PATH/lua/plugins $NVIM_PATH/lua/plugins.bak
-fi
-
 echo ">> Installing LazyVim..."
 if [ ! -d $NVIM_PATH ]; then
   git clone https://github.com/LazyVim/starter ~/.config/nvim
   rm -rf $NVIM_PATH/.git
 else
   echo "LazyVim already installed."
+fi
+
+NVIM_CONFIG_PATH=$NVIM_PATH/lua/config
+NVIM_PLUGINS_PATH=$NVIM_PATH/lua/plugins
+
+if [ -f $NVIM_CONFIG_PATH ] || [ -L $NVIM_CONFIG_PATH ]; then
+  rm -rf $NVIM_PATH/lua/config.bak
+  mv $NVIM_CONFIG_PATH $NVIM_PATH/lua/config.bak
+fi
+if [ -f $NVIM_PLUGINS_PATH ] || [ -L $NVIM_PLUGINS_PATH ]; then
+  rm -rf $NVIM_PATH/lua/plugins.bak
+  mv $NVIM_PLUGINS_PATH $NVIM_PATH/lua/plugins.bak
 fi
 
 echo ">> Overwriting NeoVim configuration..."
