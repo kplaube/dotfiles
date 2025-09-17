@@ -26,7 +26,7 @@ args = ["-l", "-c", "tmux attach || tmux"]
 blur = true
 decorations = "buttonless"
 dynamic_padding = true
-opacity = 0.85
+opacity = 0.90
 option_as_alt = "OnlyLeft"
-padding = { x = 2, y = 2 }
+padding = { x = 1, y = 1 }
 startup_mode = "Maximized"
