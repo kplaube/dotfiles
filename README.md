@@ -31,7 +31,9 @@ The tools used are the following.
 
 ## Tmux
 
-> tmux is a terminal multiplexer: it enables a number of terminals to be created, accessed, and controlled from a single screen. tmux may be detached from a screen and continue running in the background, then later reattached.
+> tmux is a terminal multiplexer: it enables a number of terminals to be
+created, accessed, and controlled from a single screen. tmux may be detached
+from a screen and continue running in the background, then later reattached.
 
 - <https://github.com/tmux/tmux>
 
@@ -43,6 +45,14 @@ Create and manage tmux sessions easily.
 
 ## NeoVim with LazyVim
 
-> LazyVim is a Neovim setup powered by 💤 lazy.nvim to make it easy to customize and extend your config. Rather than having to choose between starting from scratch or using a pre-made distro, LazyVim offers the best of both worlds - the flexibility to tweak your config as needed, along with the convenience of a pre-configured setup.
+> LazyVim is a Neovim setup powered by 💤 lazy.nvim to make it easy to
+customize and extend your config. Rather than having to choose between
+starting from scratch or using a pre-made distro, LazyVim offers the best
+of both worlds - the flexibility to tweak your config as needed, along with
+the convenience of a pre-configured setup.
 
 - <https://github.com/LazyVim/LazyVim>
+
+## Font
+
+- [Zed Fonts](https://github.com/zed-industries/zed-fonts)
