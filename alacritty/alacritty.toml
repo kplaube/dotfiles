@@ -9,24 +9,24 @@ shape = "Block"
 TERM = "xterm-256color"
 
 [font]
-normal = { family = "Zed Mono", style = "Regular" }
-bold = { family = "Zed Mono", style = "Bold" }
-italic = { family = "Zed Mono", style = "Italic" }
-bold_italic = { family = "Zed Font Mono", style = "Bold Italic" }
-size = 13
+normal = { family = "JetBrains Mono", style = "Regular" }
+bold = { family = "JetBrains Mono", style = "Bold" }
+italic = { family = "JetBrains Mono", style = "Italic" }
+bold_italic = { family = "JetBrains Mono", style = "Bold Italic" }
+size = 12
 
 [selection]
 save_to_clipboard = true
 
 [terminal.shell]
-program = "/usr/local/bin/fish"
+program = "/usr/bin/bash"
 args = ["-l", "-c", "tmux attach || tmux"]
 
 [window]
 blur = true
 decorations = "buttonless"
 dynamic_padding = true
-opacity = 0.90
+opacity = 0.95
 option_as_alt = "OnlyLeft"
 padding = { x = 1, y = 1 }
 startup_mode = "Maximized"

@@ -5,7 +5,7 @@ Welcome to my dotfiles repository.
 Through `setup-{linux,osx}.sh` one should have (mostly) everything pre-configured
 in a single command.
 
-After running the script, make sure to re-open the terminal (now with tmux + fish)
+After running the script, make sure to re-open the terminal (now with tmux)
 and type `<prefix> + I`. It will install all missing plugins for tmux.
 
 The tools used are the following.
@@ -20,15 +20,6 @@ The tools used are the following.
 
 - <https://github.com/alacritty/alacritty>
 
-## Fish
-
-> fish is a smart and user-friendly command line shell for macOS, Linux, and
-> the rest of the family. fish includes features like syntax highlighting,
-> autosuggest-as-you-type, and fancy tab completions that just work, with > [!NOTE]
-> configuration required.
-
-- <https://github.com/fish-shell/fish-shell>
-
 ## Tmux
 
 > tmux is a terminal multiplexer: it enables a number of terminals to be
@@ -36,12 +27,6 @@ created, accessed, and controlled from a single screen. tmux may be detached
 from a screen and continue running in the background, then later reattached.
 
 - <https://github.com/tmux/tmux>
-
-## Tmuxinator
-
-Create and manage tmux sessions easily.
-
-- <https://github.com/tmuxinator/tmuxinator>
 
 ## NeoVim with LazyVim
 
@@ -55,4 +40,4 @@ the convenience of a pre-configured setup.
 
 ## Font
 
-- [Zed Fonts](https://github.com/zed-industries/zed-fonts)
+- [JetBrains Mono](https://www.jetbrains.com/lp/mono/)

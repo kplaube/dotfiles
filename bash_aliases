@@ -1,9 +1,15 @@
-# Shortcuts
+# !/bin/bash
 
+if [ -e "$HOME/.bash_aliases.private" ]; then
+  source "$HOME/.bash_aliases.private"
+fi
+
+# Shortcuts
+# ----
 alias workon_dotfiles="cd $HOME/Workspace/dotfiles/"
 
 # Git workflow helpers
-
+# ----
 alias gcb="git checkout -b"
 alias gpm="git checkout main; git pull origin main --rebase -f"
 alias gpma="git checkout master; git pull origin master --rebase -f"
