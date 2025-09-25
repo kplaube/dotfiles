@@ -25,11 +25,23 @@ fi
 # Go
 export GOPATH="$HOME/go"
 
-# nvm
+# NVM
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
-# pyevn
+# Pyevn
 export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
+
+if [ -d "$PYENV_ROOT/bin" ]; then
+    export PATH="$PYENV_ROOT/bin:$PATH"
+    eval "$(pyenv init -)"
+elif command -v brew >/dev/null 2>&1 && [ -d "$(brew --prefix pyenv 2>/dev/null)/bin" ]; then
+    export PATH="$(brew --prefix pyenv)/bin:$PATH"	
+fi
+
+if command -v pyenv >/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
+
+# Rust
+[[ -d $HOME/.cargo ]] && bash $HOME/.cargo/env

@@ -28,6 +28,12 @@ from a screen and continue running in the background, then later reattached.
 
 - <https://github.com/tmux/tmux>
 
+## Tmuxinator (Mac-Only)
+
+Create and manage tmux sessions easily.
+
+- <https://github.com/tmuxinator/tmuxinator>
+
 ## NeoVim with LazyVim
 
 > LazyVim is a Neovim setup powered by 💤 lazy.nvim to make it easy to

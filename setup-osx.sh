@@ -44,32 +44,21 @@ fi
 echo ">> Done"
 echo ""
 
-# fish
+# Bash
 # ----
-echo ">> Installing fish shell..."
+echo ">> Installing Bash goodies..."
 echo "---------------------------"
 
-brew install fish
-sudo ln -s /opt/homebrew/bin/fish /usr/local/bin/fish
+mv $HOME/.bashrc $HOME/.bashrc
+ln -sf $PWD/bashrc-mac $HOME/.bashrc
 
 echo ">> Setting up custom aliases..."
-ln -s $PWD/my-aliases.fish $HOME/.my-aliases.fish
+ln -sf $PWD/bash_aliases $HOME/.bash_aliases
+ln -sf $PWD/bash_aliases.private $HOME/.bash_aliases.private
 
-if [ ! -f $PWD/my-aliases.private.fish ]; then
-  ln -s $PWD/my-aliases.private.fish $HOME/.my-aliases.private.fish
-fi
-
-echo ">> Setting up custom fish configuration..."
-if [ -f $HOME/.config/fish/config.fish ]; then
-  mv $HOME/.config/fish/config.fish $HOME/.config/fish/config.fish.bak
-fi
-
-ln -s $PWD/config.fish $HOME/.config/fish/config.fish
-
-echo ">> Installing Fisher..."
-if command -v fish >/dev/null 2>&1; then
-  fish -c 'curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source; and fisher install jorgebucaran/fisher'
-fi
+echo ">> Setting up .profile..."
+mv $HOME/.profile $HOME/.profile.bak
+ln -s $PWD/profile $HOME/.profile
 
 echo ">> Done"
 echo ""
@@ -142,8 +131,3 @@ ln -s $PWD/nvim/plugins $NVIM_PATH/lua/plugins
 
 echo ">> Done"
 echo ""
-
-# Node.js + NVM
-# -------------
-fish -c 'fisher install jorgebucaran/nvm.fish'
-fish -c "nvm install 'lts/*'"

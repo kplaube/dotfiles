@@ -1,0 +1,3 @@
+alias workon_alp="cd $HOME/Workspace/alp; source venv/bin/activate.fish"
+alias workon_ike="cd $HOME/Workspace/Ike"
+alias workon_backend_config="cd $HOME/Workspace/backend-config"
