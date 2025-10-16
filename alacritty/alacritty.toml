@@ -19,7 +19,7 @@ size = 12
 save_to_clipboard = true
 
 [terminal.shell]
-program = "/bin/bash"
+program = "/bin/zsh"
 args = ["-l", "-c", "tmux attach || tmux"]
 
 [window]

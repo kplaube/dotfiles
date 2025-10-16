@@ -1,8 +1,6 @@
 # !/bin/bash
 
-if [ -e "$HOME/.bash_aliases.private" ]; then
-  source "$HOME/.bash_aliases.private"
-fi
+[[ -s "$HOME/.my-aliases.private.sh" ]] && source "$HOME/.my-aliases.private.sh"
 
 # Shortcuts
 # ----

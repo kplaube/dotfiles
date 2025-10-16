@@ -20,6 +20,12 @@ The tools used are the following.
 
 - <https://github.com/alacritty/alacritty>
 
+## Zsh + Oh My Zsh
+
+> Oh My Zsh is an open source, community-driven framework for managing your zsh configuration.
+
+- https://github.com/ohmyzsh/ohmyzsh
+
 ## Tmux
 
 > tmux is a terminal multiplexer: it enables a number of terminals to be

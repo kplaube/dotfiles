@@ -1,5 +1,37 @@
 #!/bin/bash
 
+# zsh
+# ---
+echo ">> Installing zsh..."
+echo "-----------------------"
+
+brew install zsh zsh-completions
+
+echo ">> Installing oh-my-zsh..."
+if [ ! -d $HOME/.oh-my-zsh ]; then
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+else
+  echo "oh-my-zsh already installed."
+fi
+
+echo ">> Overwriting zshrc..."
+mv -f $HOME/.zshrc $HOME/.zshrc.bak
+ln -s $PWD/zshrc $HOME/.zshrc
+
+echo ">> Overwriting zprofile..."
+mv -f $HOME/.zprofile $HOME/.zprofile.bak
+ln -s $PWD/zprofile $HOME/.zprofile
+
+echo ">> Setting up custom aliases..."
+ln -s $PWD/my-aliases.sh $HOME/.my-aliases.sh
+
+if [ ! -f $PWD/my-aliases.private.sh ]; then
+  ln -s $PWD/my-aliases.private.sh $HOME/.my-aliases.private.sh
+fi
+
+echo ">> Done"
+echo ""
+
 # tmux
 # ----
 echo ">> Installing tmux..."
@@ -40,25 +72,6 @@ if [ -d $PWD/tmuxinator.private ]; then
     fi
   done
 fi
-
-echo ">> Done"
-echo ""
-
-# Bash
-# ----
-echo ">> Installing Bash goodies..."
-echo "---------------------------"
-
-mv $HOME/.bashrc $HOME/.bashrc
-ln -sf $PWD/bashrc-mac $HOME/.bashrc
-
-echo ">> Setting up custom aliases..."
-ln -sf $PWD/bash_aliases $HOME/.bash_aliases
-ln -sf $PWD/bash_aliases.private $HOME/.bash_aliases.private
-
-echo ">> Setting up .profile..."
-mv $HOME/.profile $HOME/.profile.bak
-ln -s $PWD/profile $HOME/.profile
 
 echo ">> Done"
 echo ""
